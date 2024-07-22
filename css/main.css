@@ -1,0 +1,55 @@
+:root {
+  --forrest: #142a26;
+  --mint: #def0df;
+  --mint-25: rgba(222, 240, 223, 0.25);
+}
+
+font-face {
+  font-family: "Sweet Sans";
+  src: url("assets/SweetSansProMedium.woff") format("woff"),
+    url("assets/SweetSansProMedium.woff2") format("woff");
+}
+
+button {
+  font-family: "Sweet Sans" !important;
+  text-transform: uppercase;
+  font-size: 16px;
+
+  &.primary {
+    background: var(--mint);
+    color: var(--forrest);
+  }
+
+  &.secondary {
+    background: var(--forrest);
+    color: var(--mint);
+    box-shadow: 0 0 0 1px var(--mint-25);
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 24px 0px 24px;
+  align-items: center;
+  background: var(--forrest);
+}
+
+.navbar p {
+  font-family: "Sweet Sans";
+  text-transform: uppercase;
+  font-size: 16px;
+  color: var(--mint);
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 24px 0px 24px;
+  align-items: center;
+  background: var(--forrest);
+}
+
+h1 {
+  color: var(---mint) !important;
+}
