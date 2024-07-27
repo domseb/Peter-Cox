@@ -2,6 +2,11 @@
   --forrest: #142a26;
   --mint: #def0df;
   --mint-25: rgba(222, 240, 223, 0.25);
+  --mint-10: rgba(222, 240, 223, 0.1);
+  --text-primary: rgba(20, 42, 38, 1);
+  --text-secondary: rgba(20, 42, 38, 0.75);
+  --border: rgba(20, 42, 38, 0.25);
+  --space-s: 10px;
 }
 
 @include font-face(
@@ -10,10 +15,60 @@
   ("woff2", "woff")
 );
 
+@include font-face(
+  "MD Primer Light",
+  "../assets/fonts/MDPrimer-Light",
+  ("woff2", "woff")
+);
+
+@include font-face(
+  "MD Primer Regular",
+  "../assets/fonts/MDPrimer-Regular",
+  ("woff2", "woff")
+);
+
+body {
+  margin: 0;
+  background: var(--forrest);
+  font-family: "MD Primer Light";
+  font-size: clamp(16px, 4vw, 24px);
+  line-height: 1.3;
+  color: var(--text-secondary);
+  -webkit-font-smoothing: antialiased;
+}
+
+.banner {
+  background: var(--forrest);
+}
+
+article {
+  background: white;
+
+  .chute {
+    width: clamp(150px, 85vw, 1200px);
+    margin: 0px auto;
+    padding: 100px 0 200px 0;
+  }
+}
+
 button {
   font-family: "Sweet Sans" !important;
   text-transform: uppercase;
+  border: none;
+  box-shadow: 0 0 0 1px var(--mint-25);
+  border-radius: 4px;
+  height: 40px;
+  padding: 0px 20px 0px 20px;
   font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  letter-spacing: 1px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 0 3px var(--mint-25);
+    transition: ease all 0.3s;
+  }
 
   &.primary {
     background: var(--mint);
@@ -23,16 +78,26 @@ button {
   &.secondary {
     background: var(--forrest);
     color: var(--mint);
-    box-shadow: 0 0 0 1px var(--mint-25);
+    // box-shadow: 0 0 0 1px var(--mint-25);
+    margin-right: 5px;
   }
 }
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 0px 24px 0px 24px;
-  align-items: center;
   background: var(--forrest);
+  position: sticky;
+  top: 0px;
+  z-index: 99;
+
+  .items {
+    width: clamp(150px, 85vw, 1200px);
+    border-bottom: 1px solid var(--mint-10);
+    padding: 24px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+  }
 }
 
 .navbar p {
@@ -48,8 +113,81 @@ button {
   padding: 0px 24px 0px 24px;
   align-items: center;
   background: var(--forrest);
+  width: clamp(150px, 85vw, 1200px);
+  margin: 0 auto;
+  padding: 100px 0 100px 0;
+
+  h1 {
+    color: var(--mint);
+    font-size: 56px;
+    font-size: clamp(32px, 5vw, 56px);
+  }
 }
 
-h1 {
-  color: var(---mint) !important;
+h3 {
+  font-family: "Sweet Sans" !important;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: normal;
+  color: var(--text-primary);
+}
+
+section {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  padding: 40px 0;
+  grid-template-areas: "one two three";
+
+  h3 {
+    grid-area: one;
+  }
+
+  div {
+    grid-area: two;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Adjust the breakpoint as needed */
+  section {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "one"
+      "two"
+      "three";
+  }
+
+  h3 {
+    grid-area: one;
+  }
+
+  div {
+    grid-area: two;
+  }
+}
+
+h3,
+p {
+  margin: 0 0 20px 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+
+  li {
+    padding: 16px 0 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 20px;
+
+    &:first-of-type {
+      padding-top: 0px;
+    }
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
 }
