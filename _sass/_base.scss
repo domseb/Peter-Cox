@@ -6,10 +6,8 @@
 
 font-face {
   font-family: "Sweet Sans";
-  src: url("{{ site.baseurl }}{{ site.url }}/assets/SweetSansProMedium.woff")
-      format("woff"),
-    url("{{ site.baseurl }}{{ site.url }}/assets/SweetSansProMedium.woff2")
-      format("woff");
+  src: url("../assets/SweetSansProMedium.woff") format("woff"),
+    url("../assets/SweetSansProMedium.woff2") format("woff");
 }
 
 button {
