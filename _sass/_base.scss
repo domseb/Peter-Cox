@@ -4,13 +4,11 @@
   --mint-25: rgba(222, 240, 223, 0.25);
 }
 
-font-face {
-  font-family: "Sweet Sans";
-  src: url("{{ site.url }}{{ site.baseurl }}/assets/SweetSansProMedium.woff")
-      format("woff"),
-    url("{{ site.url }}{{ site.baseurl }}/assets/SweetSansProMedium.woff2")
-      format("woff");
-}
+@include font-face(
+  "Sweet Sans",
+  "../assets/fonts/SweetSansProMedium",
+  ("woff2", "woff")
+);
 
 button {
   font-family: "Sweet Sans" !important;
