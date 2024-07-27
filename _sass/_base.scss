@@ -108,19 +108,27 @@ button {
 }
 
 .hero {
-  display: flex;
-  justify-content: space-between;
-  padding: 0px 24px 0px 24px;
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  padding: 40px 0;
+  // justify-content: space-between;
+  // padding: 0px 24px 0px 24px;
   align-items: center;
   background: var(--forrest);
   width: clamp(150px, 85vw, 1200px);
   margin: 0 auto;
   padding: 100px 0 100px 0;
+  gap: 30px;
 
   h1 {
     color: var(--mint);
     font-size: 56px;
     font-size: clamp(32px, 5vw, 56px);
+  }
+
+  img {
+    height: auto;
+    width: 100%;
   }
 }
 
@@ -149,6 +157,9 @@ section {
 }
 
 @media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
   /* Adjust the breakpoint as needed */
   section {
     grid-template-columns: 1fr;
